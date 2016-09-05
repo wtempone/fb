@@ -18,7 +18,12 @@
                     url: "/dashboard",
                     templateUrl: "app/dashboard/dashboard.html",
                     controller: "dashboardCtrl"
-                });
+                })
+                .state('selectcard', {
+                    url: "/selectcard",
+                    templateUrl: "app/select.card/select.card.html",
+                    controller: 'selectCardCtrl'
+                });                
         // default route           
         $urlRouterProvider.otherwise("/welcome");
 
