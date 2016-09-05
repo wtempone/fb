@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-header-bar class="bar-header bar-positive">
+        <!--div class="title uppercase">Jogo da Memória</div-->
+        <div class="title uppercase">Contacts</div>
+        <button class="button button-clear" ng-click="logout()">Sair</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="profile-container">
+            <div ng-if="user.profilePic" class="profile-pic" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
+            <div ng-if="!user.profilePic" class="profile-pic" style="background-image: url(img/profile-pic-default.png)"></div>
+            <p class="text-center light">{{user.name}}</p>
+            <div class="profile-background" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
+        </div>
+
+        <div class="list">
+            <div class="item item-avatar" ng-repeat="friend in user.friends">
+                <img ng-src="{{friend.picture.data.url}}">
+                <h2>{{friend.name}}</h2>
+            </div>
+        </div>        
+    </ion-content>
+</ion-view>

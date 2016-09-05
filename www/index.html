@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <!--title>Jogo da Memoria</title-->
+        <title>Teste</title>
+
+        <link href="css/ionic.app.css" rel="stylesheet">
+        <link href="css/social-icons.css" rel="stylesheet">
+        
+        <!-- ionic/angularjs js -->
+        <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+        <script src="lib/ngstorage/ngStorage.min.js"></script>
+        <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>
+
+        <script>
+            // Facebbok OAuth init
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '296426164071265', // Replace the App ID with yours
+                    status: true, // check login status
+                    cookie: true, // enable cookies to allow the server to access the session
+                    xfbml: true  // parse XFBML
+                });
+            };
+
+            // Load the SDK asynchronously
+            (function (d) {
+                var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement('script');
+                js.id = id;
+                js.async = true;
+                js.src = "https://connect.facebook.net/en_US/all.js";
+                ref.parentNode.insertBefore(js, ref);
+            }(document));
+            // Facebbok OAuth init - END
+
+        </script>
+
+    </head>
+    <body ng-app="memoryFriends">
+
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <!-- your app's js -->
+    <script src = "app/core/app.js" ></script>
+    <script src = "app/core/directives/flip.container.js" ></script>
+    <script src = "app/dashboard/dashboard.ctrl.js"></script>
+    <script src = "app/welcome/welcome.ctrl.js"></script>
+
+</body>
+</html>
