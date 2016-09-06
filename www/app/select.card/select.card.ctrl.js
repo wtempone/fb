@@ -11,7 +11,7 @@
         $scope.user = $cookieStore.get('userInfo');
 
         console.log("passa");
-        console.log($scope.user);
+        console.log($scope.user);        
     }
 
 })();

@@ -1,0 +1,17 @@
+.friend-container {
+    position: relative;
+    padding: 35px;
+    background-color:lightblue;
+}
+
+.friend-pic {
+    position:relative;
+    z-index:5;
+    text-align: center;
+    background-size: cover;
+    display: block;
+    margin: 0 auto 0 auto;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+}

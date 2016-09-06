@@ -1,0 +1,30 @@
+<div>
+  <h1>Select your Cards</h1>
+  <div class="card padding">
+    <ion-scroll zooming="true" direction="xy" ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px'}">
+      <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
+        <flipper flipped="item.selected" horizontal ng-repeat="item in itens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+          <front ng-click="select(item)">
+            <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
+            </div>
+          </front>
+          <back  ng-click="deselect(item)">
+            <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
+            </div>
+          </back>
+        </flipper>
+      </div>
+    </ion-scroll>
+  </div>
+</div>
+<div>
+  <h1>Selected Cards</h1>
+  <div class="card padding">
+    <ion-scroll zooming="true" direction="y" ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px'}">
+      <div  ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px' }">
+          <div  ng-repeat="item in selectedItens" ng-click="deselect(item)" class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
+          </div>
+      </div>
+    </ion-scroll>    
+  </div>
+</div>

@@ -5,55 +5,7 @@
         <button class="button button-clear" ng-click="logout()">Sair</button>
     </ion-header-bar>
     <ion-content>
-        <div class="profile-container">
-            <div ng-if="user.profilePic" class="profile-pic" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
-            <div ng-if="!user.profilePic" class="profile-pic" style="background-image: url(img/profile-pic-default.png)"></div>
-            <p class="text-center light">{{user.name}}</p>
-            <div class="profile-background" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
-        </div>
-        <div>
-            <div class="card">
-                <h5 class="dark text-center">Mode</h5>
-                <ion-slide-box  active-slide="settings.mode" on-slide-changed="modeHasChanged($index)">            
-                    <ion-slide ng-repeat="mode in settings.modes">
-                        <div>                
-                            <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{mode}}</h2>
-                            </div>
-                            <div class="padding"></div>
-                        </div>
-                    </ion-slide>
-                </ion-slide-box>
-            </div>
-            <div class="card">
-                <h5 class="dark text-center">Players</h5>
-                <ion-slide-box  active-slide="settings.numOfPlayer" on-slide-changed="numOfPlayerHasChanged($index)">            
-                    <ion-slide ng-repeat="numOfPlayer in settings.numOfPlayers">
-                        <div>                
-                            <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{numOfPlayer}}</h2>
-                            </div>
-                            <div class="padding"></div>
-                        </div>
-                    </ion-slide>
-                </ion-slide-box>
-            </div>
-            <div class="card">
-                <h5 class="dark text-center">Cards</h5>
-                <ion-slide-box  active-slide="settings.numOfCard" on-slide-changed="numOfCardHasChanged($index)">            
-                    <ion-slide ng-repeat="numOfCard in settings.numOfCards">
-                        <div>                
-                            <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{numOfCard}}</h2>
-                            </div>
-                            <div class="padding"></div>
-                        </div>
-                    </ion-slide>
-                </ion-slide-box>
-            </div>
-            <div class="padding">
-                <a class="button button-large button-block icon-right ion-chevron-right button-calm">Inicio</a>
-            </div>
-        </div>                
+        <card-map bg-color="fffff" item-color="00000" frame-size="400" cols="5" itens="user.friends" num-itens-to-select="6">
+        </card-map>
     </ion-content>
 </ion-view>
