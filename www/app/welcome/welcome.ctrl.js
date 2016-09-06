@@ -5,14 +5,10 @@
         .module('memoryFriends')
         .controller('welcomeCtrl', welcomeCtrl);
 
-    welcomeCtrl.$inject = ['$scope', '$state', '$cookieStore'];
+    welcomeCtrl.$inject = ['$scope', '$state', '$cookieStore', 'Storage'];
 
-    function welcomeCtrl($scope, $state, $cookieStore) {
-        /**
-         * SOCIAL LOGIN
-         * Facebook and Google
-         */
-        // FB Login
+    function welcomeCtrl($scope, $state, $cookieStore, Storage) {
+
         $scope.fbLogin = function () {
             FB.login(function (response) {
                 if (response.authResponse) {
@@ -23,7 +19,6 @@
             }, {scope: 'email,user_photos,user_videos, user_friends'});
 
             function getUserInfo() {
-                // get basic info
                 FB.api('/me', function (response) {
                     console.log('Facebook Login RESPONSE: ' + angular.toJson(response));
                     // get profile picture
@@ -42,7 +37,8 @@
                             user.friends = friendsResponse.data;
                             user.profilePic = picResponse.data.url;
 
-                            $cookieStore.put('userInfo', user);
+                            //$cookieStore.put('userInfo', user);
+                            Storage.setUser(user);
                             
                             $state.go('dashboard');
 
@@ -52,7 +48,6 @@
             }
 
         };
-        // END FB Login
 
     }
 })();

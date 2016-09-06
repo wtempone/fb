@@ -7,7 +7,7 @@
 
     selectCardCtrl.$inject = ['$scope', '$window', '$state', '$cookieStore'];
     function selectCardCtrl($scope, $window, $state, $cookieStore) {
-        // Set user details
+
         $scope.user = $cookieStore.get('userInfo');
 
         console.log("passa");

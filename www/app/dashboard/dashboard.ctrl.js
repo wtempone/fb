@@ -5,19 +5,32 @@
         .module('memoryFriends')
         .controller('dashboardCtrl', dashboardCtrl);
 
-    dashboardCtrl.$inject = ['$scope', '$window', '$state', '$cookieStore'];
-    function dashboardCtrl($scope, $window, $state, $cookieStore) {
-        // Set user details
-        $scope.user = $cookieStore.get('userInfo');
-        
-        // Logout user
-        $scope.logout = function () {
-            $cookieStore.remove("userInfo");
-            $state.go('welcome');
-            $window.location.reload();
+    dashboardCtrl.$inject = ['$scope', '$window', '$state', '$cookieStore', 'Storage'];
+    function dashboardCtrl($scope, $window, $state, $cookieStore, Storage) {
+
+        $scope.settings = { 
+            mode: 0,
+            modes: ["Normal", "Outra"], 
+            numOfPlayer: 0,
+            numOfPlayers: [1,2,3,4],
+            numOfCard: 0,
+            numOfCards: [12, 16, 20 , 24, 30, 36,  42, 48]
         }
+        //$scope.user = $cookieStore.get('userInfo');
+        Storage.getUser().then(function(user){
+            $scope.user = user;            
+        });
 
         $scope.selectCard = function () {
+            var game ={
+                settings: {
+                    mode: $scope.settings.mode,
+                    numOfPlayers: $scope.settings.numOfPlayer,
+                    numOfCards: $scope.settings.numOfCards[$scope.settings.numOfCard]
+                }
+            }
+
+            Storage.getGame(game);
             $cookieStore.put('userInfo', $scope.user);            
             $state.go('selectcard');
         }
@@ -33,15 +46,18 @@
         $scope.numOfCardHasChanged = function(index) {
             $scope.settings.numOfCard = index;
         }
-        
-        $scope.settings = { 
-            mode: 0,
-            modes: ["Normal", "Outra"], 
-            numOfPlayer: 0,
-            numOfPlayers: [1,2,3,4],
-            numOfCard: 0,
-            numOfCards: [12, 16, 2 , 24, 30, 36,  42, 48]
-        }
+
+        $scope.logout = function(){
+            UiUtils.confirm("Do you like Log Out?", "Log Out").then(function(res) { 
+                if(res) {
+                    Storage.removeUser().then();
+                    $ionicHistory.clearHistory();
+                    $ionicHistory.clearCache();
+                    $state.go('welcome');
+                    $window.location.reload();
+                }
+            });
+        }        
 
     }
 

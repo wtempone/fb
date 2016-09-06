@@ -1,5 +1,5 @@
 <div>
-  <h1>Select your Cards</h1>
+  <h4 class="text-center">Select your Cards</h4>
   <div class="card padding">
     <ion-scroll zooming="true" direction="xy" ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px'}">
       <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
@@ -18,13 +18,16 @@
   </div>
 </div>
 <div>
-  <h1>Selected Cards</h1>
+  <h4 class="text-center">Selected Cards</h4>
   <div class="card padding">
-    <ion-scroll zooming="true" direction="y" ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px'}">
+    <ion-scroll zooming="true" direction="y" ng-style="{ 'width' : frameSize + 'px', 'height': (frameSize / 2) + 'px'}">
       <div  ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px' }">
           <div  ng-repeat="item in selectedItens" ng-click="deselect(item)" class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
           </div>
       </div>
     </ion-scroll>    
   </div>
+</div>
+<div class="padding">
+    <a class="button button-large button-block icon-right ion-chevron-right button-positive" ng-click="newGame()">Inicio</a>
 </div>
