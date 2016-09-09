@@ -1,0 +1,29 @@
+.card {
+    color: $balanced;
+    border: 1px solid $balanced;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    background-color: rgba(lighten($balanced, 50%), 0.3);
+}
+/*
+.slider {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.0)
+  }
+*/
+.slider-pager {
+    bottom: 5px;
+}
+.slider-pager-page
+{
+ color: darken($color: $balanced, $amount: 80) !important;
+}
+.slider-pager-page.active
+{
+  color: $balanced !important;
+}
+.no-padding {
+    padding: 0px !important;
+    margin: 0px !important;
+}

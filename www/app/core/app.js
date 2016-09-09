@@ -23,6 +23,16 @@
                     url: "/selectcard",
                     templateUrl: "app/select.card/select.card.html",
                     controller: 'selectCardCtrl'
+                })                
+                .state('selectplayer', {
+                    url: "/selectplayer",
+                    templateUrl: "app/select.player/select.player.html",
+                    controller: 'selectPlayerCtrl'
+                })           
+                .state('gamesession', {
+                    url: "/gamesession",
+                    templateUrl: "app/game.session/game.session.html",
+                    controller: 'gameSessionCtrl'
                 });                
         // default route           
         $urlRouterProvider.otherwise("/welcome");

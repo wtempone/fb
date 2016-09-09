@@ -15,9 +15,10 @@
       // user
       getUser: getUser,
       setUser: setUser,
+      removeUser: removeUser,
       getGame: getGame,
       setGame: setGame,
-      removeUser: removeUser,
+      removeGame: removeGame,
       // global
       clear: clear
     };
@@ -30,16 +31,20 @@
       return _StorageUtils.set(keys.user, user);
     }
 
-    function getGame(){
-      return _StorageUtils.get(keys.user);
-    }
-
-    function setGame(user){
-      return _StorageUtils.set(keys.user, user);
-    }
-
     function removeUser(){
       return _StorageUtils.remove(keys.user);
+    }
+
+    function getGame(){
+      return _StorageUtils.get(keys.game);
+    }
+
+    function setGame(game){
+      return _StorageUtils.set(keys.game, game);
+    }
+
+    function removeGame(){
+      return _StorageUtils.remove(keys.game);
     }
 
     function clear(){

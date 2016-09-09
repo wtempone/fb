@@ -1,10 +1,10 @@
-<ion-view>
+<ion-view id="dashboard-view">
     <ion-header-bar class="bar-header bar-positive">
         <div class="title uppercase">Contacts</div>
-        <button class="button button-clear" ng-click="logout()">Sair</button>
+        <button class="button button-clear" ng-click="selectPlayer()">Voltar</button>
     </ion-header-bar>
     <ion-content>
-        <card-map bg-color="fffff" item-color="00000" frame-size="400" cols="5" itens="user.friends" num-itens-to-select="6">
+        <card-map message-itens="'Select yours cards'" message-selected="'Selected Card'" bg-color="fffff" item-color="00000" frame-size="400" cols="5"  itens="user.friends" num-itens-to-select="game.settings.numOfCards/2"  on-select="onSelect(selectedItens)" >
         </card-map>
     </ion-content>
 </ion-view>

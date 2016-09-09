@@ -1,50 +1,47 @@
-<ion-view>
-    <ion-header-bar class="bar-header bar-positive">
-        <!--div class="title uppercase">Jogo da Memória</div-->
-        <div class="title uppercase">Contacts</div>
-        <button class="button button-clear" ng-click="logout()">Sair</button>
-    </ion-header-bar>
+<ion-view id="dashboard-view" title='<img src="img/mccann.jpg" class="img-logo-20"></img>' hide-nav-bar="true">
+    <button class="button button-large button-right button-balanced ion-close button-clear button-right" ng-click="logout()"></button>
+
     <ion-content>
-        <div class="profile-container">
+        <div class="profile-container ">
             <div ng-if="user.profilePic" class="profile-pic" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
             <div ng-if="!user.profilePic" class="profile-pic" style="background-image: url(img/profile-pic-default.png)"></div>
-            <p class="text-center light">{{user.name}}</p>
+            <h3 class="text-center balanced">{{user.name}}</h3>
             <div class="profile-background" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
         </div>
         <div>
-            <div class="card">
-                <h5 class="dark text-center">Mode</h5>
+            <div class="card select-card">
+                <h5 class="balanced text-center">Mode</h5>
                 <ion-slide-box  active-slide="settings.mode" on-slide-changed="modeHasChanged($index)">            
                     <ion-slide ng-repeat="mode in settings.modes">
                         <div>                
                             <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{mode}}</h2>
+                                <h2 class="balanced">{{mode}}</h2>
                             </div>
                             <div class="padding"></div>
                         </div>
                     </ion-slide>
                 </ion-slide-box>
             </div>
-            <div class="card">
-                <h5 class="dark text-center">Players</h5>
+            <div class="card select-card">
+                <h5 class="balanced text-center">Players</h5>
                 <ion-slide-box  active-slide="settings.numOfPlayer" on-slide-changed="numOfPlayerHasChanged($index)">            
                     <ion-slide ng-repeat="numOfPlayer in settings.numOfPlayers">
                         <div>                
                             <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{numOfPlayer}}</h2>
+                                <h2 class="balanced">{{numOfPlayer}}</h2>
                             </div>
                             <div class="padding"></div>
                         </div>
                     </ion-slide>
                 </ion-slide-box>
             </div>
-            <div class="card">
-                <h5 class="dark text-center">Cards</h5>
+            <div class="card select-card">
+                <h5 class="balanced text-center">Cards</h5>
                 <ion-slide-box  active-slide="settings.numOfCard" on-slide-changed="numOfCardHasChanged($index)">            
                     <ion-slide ng-repeat="numOfCard in settings.numOfCards">
                         <div>                
                             <div class="item-text-wrap text-center" >
-                                <h2 class="dark">{{numOfCard}}</h2>
+                                <h2 class="balanced">{{numOfCard}}</h2>
                             </div>
                             <div class="padding"></div>
                         </div>
@@ -52,7 +49,7 @@
                 </ion-slide-box>
             </div>
             <div class="padding">
-                <a class="button button-large button-block icon-right ion-chevron-right button-positive" ng-click="selectCard()">Inicio</a>
+                <a class="button button-large button-outline button-block icon-right ion-chevron-right button-balanced" ng-click="selectCard()">Inicio</a>
             </div>
         </div>                
     </ion-content>

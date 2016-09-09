@@ -1,15 +1,37 @@
 <div>
-  <h4 class="text-center">Select your Cards</h4>
   <div class="card padding">
-    <ion-scroll zooming="true" direction="xy" ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px'}">
-      <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
+    <h4 class="item-divider text-center">{{messageSelected}}</h4>
+      <div>
+        <ion-scroll zooming="true" direction="y" ng-style="{'height': (frameSize / 2) + 'px'}">
+          <div  ng-style="{ 'width' : frameSize}">
+            <flipper flipped="item.selected" horizontal ng-repeat="item in selectedItens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+              <front ng-click="select(item)">
+                <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                </div>
+              </front>
+              <back  ng-click="deselect(item)">
+                <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                </div>
+              </back>
+            </flipper>
+          </div>
+        </ion-scroll>    
+      </div>      
+      <div>
+
+      </div>
+  </div>
+  <div class="card padding">
+    <h4 class="item-divider text-center">{{messageItens}}</h4>
+    <ion-scroll zooming="true" direction="xy" ng-style="{ 'height': frameSize + 'px'}">
+      <div class="card-custom" ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
         <flipper flipped="item.selected" horizontal ng-repeat="item in itens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
           <front ng-click="select(item)">
-            <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
+            <div class="card deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
             </div>
           </front>
           <back  ng-click="deselect(item)">
-            <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
+            <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
             </div>
           </back>
         </flipper>
@@ -17,17 +39,6 @@
     </ion-scroll>
   </div>
 </div>
-<div>
-  <h4 class="text-center">Selected Cards</h4>
-  <div class="card padding">
-    <ion-scroll zooming="true" direction="y" ng-style="{ 'width' : frameSize + 'px', 'height': (frameSize / 2) + 'px'}">
-      <div  ng-style="{ 'width' : frameSize + 'px', 'height': frameSize + 'px' }">
-          <div  ng-repeat="item in selectedItens" ng-click="deselect(item)" class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
-          </div>
-      </div>
-    </ion-scroll>    
-  </div>
-</div>
 <div class="padding">
-    <a class="button button-large button-block icon-right ion-chevron-right button-positive" ng-click="newGame()">Inicio</a>
+    <a class="button button-large button-block button-outline icon-right ion-chevron-right button-balanced" ng-disabled="selectedItens.length != numItensToSelect" ng-click="setSelect()">Next</a>
 </div>

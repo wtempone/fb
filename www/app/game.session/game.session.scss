@@ -1,0 +1,44 @@
+.player-card {
+    padding: 0px !important;
+    border: 0px;
+    border-radius: 10px !important;
+}
+.player-image {
+    border: 0px;    
+    border-radius: 10px 10px 0px 0px !important;
+}
+.player-name {
+    font-size: 0.8em;
+    vertical-align: middle;
+    color: $balanced;
+    border: 0px;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.player-score {
+    font-size: 1.2em;
+    vertical-align: middle;
+    color: $balanced;
+    border: 0px;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.game-card {
+    background-size: cover;
+    border-radius:25% !important;
+    margin: 5px !important;
+    display: block;
+}
+
+.player-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.player {
+    padding: 0px !important;
+    margin: 0px !important;
+    display: flex;
+    justify-content: space-between;
+}
