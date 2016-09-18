@@ -14,6 +14,7 @@
             link: link,
             restrict: 'E',
             scope: {
+                type: '=type',
                 messageSelected: '=messageSelected',
                 messageItens: '=messageItens',
                 bgColor: '=bgColor',

@@ -28,11 +28,11 @@
             <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
                 <flipper  class="game-card" flipped="item.selected" horizontal ng-repeat="item in game.cards" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
                 <front ng-click="select(item)">
-                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(img/profile-pic-default.png)', 'background-size': 'cover', 'border-radius':'100%'}">
+                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(img/profile-pic-default.png)', 'background-size': 'cover', 'border-radius':'25%'}">
                     </div>                    
                 </front>
                 <back>
-                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.card.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%'}">
+                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.card.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%'}">
                     </div>                
                 </back>
                 </flipper>

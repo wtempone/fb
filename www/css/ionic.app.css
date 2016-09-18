@@ -8253,8 +8253,15 @@ flipper[vertical] div.flipper.flipped .back {
   filter: contrast(1.5);
   box-shadow: inset 0 9px 15px -10px rgba(255, 255, 255, 0.6), 0 0.3px 0.5px -0.2px #646464, 0 1px 2px -0.75px rgba(100, 100, 100, 0.75), 0 1px 3px -0.5px rgba(100, 100, 100, 0.5), 0 3px 3px -0.25px rgba(100, 100, 100, 0.2); }
 
-.card-custom {
-  margin: 5px !important; }
+.card-container {
+  text-align: center;
+  align-items: center; }
+
+.custom-card {
+  background-size: cover;
+  border-radius: 25% !important;
+  margin: 5px !important;
+  display: inline-block; }
 
 body {
   font-family: 'Roboto', serif; }

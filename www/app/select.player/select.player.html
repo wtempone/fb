@@ -4,7 +4,7 @@
         <button class="button button-clear" ng-click="dashboard()">Voltar</button>
     </ion-header-bar>
     <ion-content>
-        <card-map message-itens="'Select yours players'" message-selected="'Selected Players'" bg-color="fffff" item-color="00000" frame-size="400" cols="5" itens="user.friends" num-itens-to-select="game.settings.numOfPlayers" on-select="onSelect(selectedItens)" >
+        <card-map type="'player'" message-itens="'Select yours players'" message-selected="'Selected Players'" bg-color="fffff" item-color="00000" frame-size="400" cols="5" itens="user.friends" num-itens-to-select="game.settings.numOfPlayers" on-select="onSelect(selectedItens)" >
         </card-map>
     </ion-content>
 </ion-view>

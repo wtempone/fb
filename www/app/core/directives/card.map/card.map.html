@@ -1,42 +1,85 @@
 <div>
   <div class="card padding">
     <h4 class="item-divider text-center">{{messageSelected}}</h4>
-      <div>
-        <ion-scroll zooming="true" direction="y" ng-style="{'height': (frameSize / 2) + 'px'}">
-          <div  ng-style="{ 'width' : frameSize}">
-            <flipper flipped="item.selected" horizontal ng-repeat="item in selectedItens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+
+      <div ng-if="type == 'card'">
+        <ion-scroll zooming="true" direction="y" ng-style="{'height': (frameSize / 4) + 'px'}">
+          <div class="card-container" ng-style="{ 'width' : frameSize}">
+            <div class="custom-card" ng-repeat="item in selectedItens" >
+              
+              <flipper  class="" flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+                <front ng-click="select(item)">
+                  <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                  </div>
+                </front>
+                <back  ng-click="deselect(item)">
+                  <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                  </div>
+                </back>
+              </flipper>
+            </div>
+          </div>
+        </ion-scroll>    
+      </div>    
+
+
+      <div class="card-container" ng-style="{'height': (frameSize *.3) + 'px'}" ng-if="type == 'player'">
+          <div class="custom-card" ng-repeat="item in selectedItens" >
+            <flipper class=""  flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+                <front>
+                    <div class="card no-padding">
+                        <div class="item item-image  player-image">
+                          <img  ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}" class="deselected " ng-src="{{item.picture.data.url}}" imageonload />
+                      </div>  
+                      <p class="text-center no-padding player-name">{{item.name.split(" ")[0]}}</p>
+                    </div>
+                </front>
+                <back>  
+                    <div class="card no-padding">
+                        <div class="item item-image  player-image">
+                          <img  ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}" ng-src="{{item.picture.data.url}}" imageonload />
+                        </div>
+                        <p class="text-center no-padding player-name">{{item.name.split(" ")[0]}}</p>
+                  </div>
+                </back>
+            </flipper>
+
+            <!--flipper class="custom-card" flipped="item.selected" horizontal ng-repeat="item in selectedItens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
               <front ng-click="select(item)">
                 <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                    {{item.name}}
                 </div>
               </front>
               <back  ng-click="deselect(item)">
                 <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
+                    {{item.name}}
                 </div>
               </back>
-            </flipper>
+            </flipper-->
           </div>
-        </ion-scroll>    
-      </div>      
-      <div>
-
-      </div>
+      </div>           
   </div>
+
+
   <div class="card padding">
     <h4 class="item-divider text-center">{{messageItens}}</h4>
     <ion-scroll zooming="true" direction="xy" ng-style="{ 'height': frameSize + 'px'}">
-      <div class="card-custom" ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
-        <flipper flipped="item.selected" horizontal ng-repeat="item in itens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
-          <front ng-click="select(item)">
-            <div class="card deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
-            </div>
-          </front>
-          <back  ng-click="deselect(item)">
-            <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
-            </div>
-          </back>
-        </flipper>
+      <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
+          <flipper  class="custom-card" flipped="item.selected" horizontal ng-repeat="item in itens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+            <front ng-click="select(item)">
+                <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%'}">
+                </div>                    
+            </front>
+            <back ng-click="deselect(item)">
+                <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%'}">
+                </div>                
+            </back>
+          </flipper>
       </div>
     </ion-scroll>
+
+
+
   </div>
 </div>
 <div class="padding">

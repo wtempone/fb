@@ -1,8 +1,12 @@
 .card-container {
-
+    text-align: center; 
+    align-items: center; 
 }
 
-.card-custom {
+.custom-card {
+    background-size: cover;
+    border-radius:25% !important;
     margin: 5px !important;
+    display: inline-block
 }
 
