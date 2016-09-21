@@ -8345,10 +8345,18 @@ hr {
 .platform-android ion-popover-view.fit {
   margin-top: 10px !important; }
 
+.player-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  align-items: center; }
+
 .player-card {
   padding: 0px !important;
   border: 0px;
-  border-radius: 10px !important; }
+  border-radius: 10px !important;
+  display: inline-block; }
 
 .player-image {
   border: 0px;
@@ -8376,16 +8384,18 @@ hr {
   margin: 5px !important;
   display: block; }
 
-.player-container {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
+.game-card-picture {
+  background-size: cover;
+  border-radius: 25% !important;
+  border: 1px #354f88 solid; }
 
 .player {
   padding: 0px !important;
   margin: 0px !important;
-  display: flex;
-  justify-content: space-between; }
+  display: inline-block; }
+
+.custom-progress {
+  z-index: 90 !important; }
 
 .card {
   color: #354f88;

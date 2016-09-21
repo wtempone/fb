@@ -1,26 +1,24 @@
-<ion-modal-view id="dashboard-view">
-    <ion-header-bar class="bar-header bar-positive">
-        <div class="title uppercase">Main Contacts</div>
+<ion-view id="dashboard-view">
+    <ion-header-bar class="bar-header bar-balanced">
+        <div class="title uppercase">Memory Friends</div>
         <button class="button button-clear" ng-click="dashboard()">Voltar</button>
     </ion-header-bar>
     <ion-content>
-        <div class="row player-container ">
-            <div class="col-25 col-center player" ng-repeat="item in game.players">
-                <div class="card player-card">
-                    <div class="item item-image  player-image">
-                        <flipper class="" flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
-                            <front>
-                                <img  class="deselected " ng-src="{{item.player.picture.data.url}}" imageonload />
-                            </front>
-                            <back>
-                                <img ng-src="{{item.player.picture.data.url}}" imageonload />
-                            </back>
-                        </flipper>
-                    </div>
-                    <progress  style="z-index: 90" class="no-padding" id="progressbar" max="{{ timeRefresh }}" value="{{ progressval[$index] }}"> </progress>
-                    <p class="text-center no-padding player-name">{{item.player.name.split(" ")[0]}}</p>
-                    <h3 class="text-center no-padding player-score">{{item.score}}<h3>
+        <div class="player-container ">
+            <div class="card player-card"  ng-repeat="item in game.players">
+                <div class="item item-image  player-image">
+                    <flipper class="" flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
+                        <front>
+                            <img  class="deselected " ng-src="{{item.player.picture.data.url}}" imageonload />
+                        </front>
+                        <back>
+                            <img ng-src="{{item.player.picture.data.url}}" imageonload />
+                        </back>
+                    </flipper>
                 </div>
+                <p class="text-center no-padding player-name">{{item.player.name.split(" ")[0]}}</p>
+                <progress  class="custom-progress no-padding" id="progressbar" max="{{ timeRefresh }}" value="{{ progressval[$index] }}"> </progress>
+                <h3 class="text-center no-padding player-score">{{item.score}}<h3>
             </div>
         </div>
         <div class="card padding">
@@ -28,11 +26,11 @@
             <div  ng-style="{ 'width' : scrollArea + 'px', 'height': scrollArea + 'px' }">
                 <flipper  class="game-card" flipped="item.selected" horizontal ng-repeat="item in game.cards" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
                 <front ng-click="select(item)">
-                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(img/profile-pic-default.png)', 'background-size': 'cover', 'border-radius':'25%'}">
+                    <div class="game-card-picture" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(img/profile-pic-default.jpg)', 'background-size': 'cover'}">
                     </div>                    
                 </front>
                 <back>
-                    <div ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.card.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%'}">
+                    <div class="game-card-picture" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.card.picture.data.url + ')', 'background-size': 'cover'}">
                     </div>                
                 </back>
                 </flipper>

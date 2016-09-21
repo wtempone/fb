@@ -94,6 +94,7 @@
                 if ($scope.modal) {
                     $scope.closeModal()
                 }
+                //$scope.showModal();
                 startprogress();
             });
         }
@@ -138,7 +139,9 @@
         }
 
         $scope.gameOver = function() {
-            var scores = [];
+            var scores = [], ind = 0;
+            $scope.winnerCount = 0;
+            $scope.winnerIndex = 0;
             angular.forEach($scope.game.players, function(player) {
                 scores.push(player.score);
             });
@@ -146,7 +149,12 @@
             angular.forEach($scope.game.players, function(player) {
                 if (player.score == maxScore) {
                     player.winner = true;
+                    $scope.winnerIndex = ind;
+                    $scope.winnerCount +=1;
+                } else {
+                    player.winner = false;
                 }
+                ind +=1;
             });       
             $scope.showModal();
      

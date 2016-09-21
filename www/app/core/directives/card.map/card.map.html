@@ -3,7 +3,7 @@
     <h4 class="item-divider text-center">{{messageSelected}}</h4>
 
       <div ng-if="type == 'card'">
-        <ion-scroll zooming="true" direction="y" ng-style="{'height': (frameSize / 4) + 'px'}">
+        <ion-scroll zooming="true" direction="y" ng-style="{'height': (frameSize / 2) + 'px'}">
           <div class="card-container" ng-style="{ 'width' : frameSize}">
             <div class="custom-card" ng-repeat="item in selectedItens" >
               
@@ -43,21 +43,12 @@
                   </div>
                 </back>
             </flipper>
-
-            <!--flipper class="custom-card" flipped="item.selected" horizontal ng-repeat="item in selectedItens" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
-              <front ng-click="select(item)">
-                <div class="deselected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
-                    {{item.name}}
-                </div>
-              </front>
-              <back  ng-click="deselect(item)">
-                <div class="selected" ng-style="{'float': 'left',   'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'25%', 'margin':'5px'}">
-                    {{item.name}}
-                </div>
-              </back>
-            </flipper-->
           </div>
       </div>           
+  </div>
+  
+  <div class="padding">
+      <a class="button button-large button-block button-outline icon-right ion-chevron-right button-balanced" ng-disabled="selectedItens.length != numItensToSelect" ng-click="setSelect()">Next</a>
   </div>
 
 
@@ -78,10 +69,5 @@
       </div>
     </ion-scroll>
 
-
-
   </div>
-</div>
-<div class="padding">
-    <a class="button button-large button-block button-outline icon-right ion-chevron-right button-balanced" ng-disabled="selectedItens.length != numItensToSelect" ng-click="setSelect()">Next</a>
 </div>

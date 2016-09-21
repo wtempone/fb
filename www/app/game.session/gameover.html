@@ -1,63 +1,37 @@
-<ion-modal-view class="swot-slide" hide-nav-bar="true">
-    <ion-header-bar>
+<ion-modal-view id="dashboard-view">
+    <ion-header-bar class="bar-header bar-balanced">
         <h1 class="title">Game Over</h1>
     </ion-header-bar>
      <ion-content>
-        <div class="row">
-            <div class="card" ng-repeat="item in game.players">
-                <div  class="item item-divider item-text-wrap">
-                    <h2>Winners</h2>
-                </div>
-                <div class="item">
-                    <flipper flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
-                    <front>
-                        <div class="deselected" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.player.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
-                        </div>
-                    </front>
-                    <back>
-                        <div class="selected" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.player.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
-                        </div>
-                    </back>
-                    </flipper>
-                </div>
-                <div  class="item item-divider item-text-wrap">
-                    {{item.player.name}}
-                </div>
-                <div  class="item item-divider item-text-wrap">
-                        Score: {{item.score}}
-                    </div>                
-                </div>
+        <div class="player-container ">
+            <div class="card player-card" ng-repeat="item in game.players | filter: { winner: true }">
+                <div class="item item-image  player-image">
+                    <img ng-style="{'width' : (itemSize * 1) + 'px', 'height': (itemSize * 1) +  'px'}" ng-src="{{item.player.picture.data.url}}" imageonload />
+                </div>                    
+            </div>
+            <h1 ng-if="winnerCount==1" class="text-center no-padding player-score"> {{game.players[winnerIndex].player.name.split(" ")[0]}} won!<h2>                              
+            <h1 ng-if="winnerCount>1" class="text-center no-padding player-score">Draw<h2>                  
+        
         </div>
-        <div class="row">
-            <div class="card" ng-repeat="item in game.players || filter: winner">
-                <div class="item">
-                    <flipper flipped="item.selected" horizontal ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}">
-                    <front>
-                        <div class="deselected" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.player.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
-                        </div>
-                    </front>
-                    <back>
-                        <div class="selected" ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px','background-image': 'url(' + item.player.picture.data.url + ')', 'background-size': 'cover', 'border-radius':'100%', 'margin':'5px'}">
-                        </div>
-                    </back>
-                    </flipper>
+
+        <div class="player-container ">
+            <div class="card player-card"  ng-repeat="item in game.players">
+                <div class="item item-image  player-image">
+                    <img ng-style="{'width' : itemSize + 'px', 'height': itemSize + 'px'}" ng-src="{{item.player.picture.data.url}}" imageonload />
                 </div>
-                <div  class="item item-divider item-text-wrap">
-                    {{item.player.name}}
-                </div>
-                <div  class="item item-divider item-text-wrap">
-                        Score: {{item.score}}
-                    </div>                
-                </div>
+                <p class="text-center balanced no-padding player-name">{{item.player.name.split(" ")[0]}}</p>
+                <h1 class="text-center balanced no-padding">{{item.score}}<h1>
+            </div>      
         </div>
+
         <div class="row">
             <div class="col">
                 <div class="padding">
-                    <a class="button button-large button-block button-outline button-positive"  ng-click="restart()">Restart</a>
-                    <a class="button button-large button-block button-outline button-positive"  ng-click="dashboard()">Quit</a>
+                    <a class="button button-large button-block button-outline button-balanced"  ng-click="restart()">Restart</a>
+                    <a class="button button-large button-block button-outline button-balanced"  ng-click="dashboard()">Quit</a>
                 </div>
             </div>
         </div>
-
+        
      </ion-content>
 </ion-modal-view>

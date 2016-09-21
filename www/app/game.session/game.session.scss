@@ -1,8 +1,18 @@
+.player-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; 
+    align-items: center;     
+}
 .player-card {
     padding: 0px !important;
     border: 0px;
     border-radius: 10px !important;
+    display: inline-block
 }
+
+
 .player-image {
     border: 0px;    
     border-radius: 10px 10px 0px 0px !important;
@@ -31,14 +41,19 @@
     display: block;
 }
 
-.player-container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.game-card-picture {
+    background-size: cover;
+    border-radius:25% !important;
+    border: 1px $balanced solid;
 }
+
+
 .player {
     padding: 0px !important;
     margin: 0px !important;
-    display: flex;
-    justify-content: space-between;
+    display: inline-block
+}
+
+.custom-progress{
+    z-index: 90 !important;
 }
